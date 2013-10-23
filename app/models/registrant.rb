@@ -5,4 +5,6 @@ class Registrant
 	field :email, type: String
 	field :expires_at, type: Time
 
+	
+
 end

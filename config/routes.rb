@@ -1,5 +1,4 @@
 Toddycat::Application.routes.draw do
-
   #Sign in/out
   get 'login' => 'session#new'
   post 'login' => 'session#create'
@@ -9,6 +8,7 @@ Toddycat::Application.routes.draw do
   #Registration
   get 'register/:code' => 'registration#new'
   post 'register/:code' => 'registration#create'
+  get 'register' => 'registration#index'
 
   #Password reset
   get 'reset/:code' => 'password#edit'
@@ -17,6 +17,9 @@ Toddycat::Application.routes.draw do
 
   get 'privacy' => 'site#privacy'
   get 'terms' 	=> 'site#terms'
+
+  #All Registrants
+  get 'registrants' => 'registrants#index'
 
   root 'site#index'
 end
