@@ -13,19 +13,22 @@ html lang="en"
 
   body
     #wrap
-    == render partial: "layouts/navigation"
-          
-    .container
+      - if current_user
+        == render partial: "layouts/navigation"
+      - else
+        == render partial: "layouts/header"
+
+      .container
         .page
-            == yield
-          
+          == yield
+
     #footer
-    .container
-        p.text-muted.credit
-        => link_to "Privacy Policy", privacy_url
-        ' &middot;
-        => link_to "Terms of Use", terms_url
-        ' &middot; &copy; 2013 ToddyCat
+     .container
+       p.text-muted.credit
+         => link_to "Privacy Policy", privacy_url
+         ' &middot;
+         => link_to "Terms of Use", terms_url
+         ' &middot; &copy; 2013 ToddyCat
 
     = javascript_include_tag "application"
 
